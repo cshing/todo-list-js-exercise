@@ -45,11 +45,24 @@ function newTask(title, description) {
   return task;
 }
 
+// Step 2 refractor functions
+function logTaskState(task) {
+  console.log(`${task.title} has${task.complete ? " " : " not "}been complete`);
+}
+
+function completeTask(task) {
+  task.complete = true;
+}
+
 // Diver code below
 
 const task1 = newTask("Clean Cat Litter", "Take all the 💩 out of the litter box");
 const task2 = newTask("Do Laundry", "😨");
 const tasks = [task1, task2];
+
+logTaskState(task1);
+completeTask(task1);
+logTaskState(task1);
 
 // test to check we can see tasks
 console.log(tasks);
