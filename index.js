@@ -40,19 +40,28 @@ function newTask(title, description) {
   const task = {
     title: title,
     description: description,
-    complete: false
+    complete: false,
+    
+    // Step 3, make functions into methods of the object
+    logState: function() {
+      console.log(`${this.title} has${this.complete ? " " : " not "}been complete`);
+    },
+
+    markCompleted : function() {
+      this.complete = true;
+    }
   };
   return task;
 }
 
-// Step 2 refractor functions
-function logTaskState(task) {
-  console.log(`${task.title} has${task.complete ? " " : " not "}been complete`);
-}
+// // Step 2 refractor functions
+// function logTaskState(task) {
+//   console.log(`${task.title} has${task.complete ? " " : " not "}been complete`);
+// }
 
-function completeTask(task) {
-  task.complete = true;
-}
+// function completeTask(task) {
+//   task.complete = true;
+// }
 
 // Diver code below
 
@@ -60,9 +69,15 @@ const task1 = newTask("Clean Cat Litter", "Take all the 💩 out of the litter b
 const task2 = newTask("Do Laundry", "😨");
 const tasks = [task1, task2];
 
-logTaskState(task1);
-completeTask(task1);
-logTaskState(task1);
+// logTaskState(task1);
+// completeTask(task1);
+// logTaskState(task1);
+
+task1.logState();
+task1.markCompleted();
+task1.logState();
+
+console.log(task1.description)  //to check object's state, have to console.log it
 
 // test to check we can see tasks
-console.log(tasks);
+// console.log(tasks);
